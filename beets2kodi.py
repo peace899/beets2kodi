@@ -106,7 +106,7 @@ def album_info():
     print ("       <musicBrainzArtistID>{0}</musicBrainzArtistID>".format(data[1]), file=open(albumnfo,"a"))
     print ("    </albumArtistCredits>", file=open(albumnfo,"a"))
     trackdata = []    
-    for item in lib.items('mb_albumid:e26afcc2-7ef9-49e9-b64f-8f74a5ff15c3'):
+    for item in lib.items(albumid):
         row = item.track,item.mb_trackid,item.length,item.title
         duration = time.strftime("%M:%S", time.gmtime(row[2]))
         trackdata.append(list(tuple([row[0],duration,row[1],row[3]])))
