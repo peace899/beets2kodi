@@ -10,7 +10,8 @@ from urllib.request import Request, urlopen
 import beets.library
 from beets import config
 
-"""Creates Kodi nfo files (artist.nfo & album.nfo) after importing album.
+"""Creates Kodi nfo files (artist.nfo & album.nfo) for your beets library/managed music.
+Still some errors there and there, a work-in-progress project
 
 Put something like the following in your config.yaml to configure: as per kodiupdate plugin
     kodi:
