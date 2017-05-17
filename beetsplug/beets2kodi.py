@@ -177,7 +177,7 @@ class Beets2Kodi(BeetsPlugin):
         albumid = 'mb_albumid:'+ album.mb_albumid
         artistid = 'mb_albumartistid' + album.mb_albumartistid
         artistnfo = os.path.join(album.path, os.pardir, 'artist.nfo')
-        if album.albumartist in ['Various Artist', 'Soundtrack']
+        if 'Various Artists' or 'Soundtracks' in album.path
             pass
         else:
             root = ET.Element('artist')
