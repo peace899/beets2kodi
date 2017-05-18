@@ -2,6 +2,7 @@ Beets2Kodi Plugin
 =================
 
 Disclaimer: Doc copied from KodiUpdate Plugin
+
 The plugin lets you create nfo files for Kodi music
 library whenever you import an album into the library.
 
