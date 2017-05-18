@@ -1,6 +1,7 @@
 Beets2Kodi Plugin
 =================
 
+Disclaimer: Doc copied from KodiUpdate Plugin
 The plugin lets you create nfo files for Kodi music
 library whenever you import an album into the library.
 
@@ -23,6 +24,6 @@ To use the ``beets2kodi`` plugin you need  (requests, lxml, simplejson. base64) 
 You'll also need to enable JSON-RPC in Kodi in order the use the plugin.
 In Kodi's interface, navigate to System/Settings/Network/Services and choose "Allow control of Kodi via HTTP."
 
-With that all in place, you'll see beets send the "update" command to your Kodi
-host every time you change your beets library.
+With that all in place, you can create nfo/xml files for Kodi.
+
 
