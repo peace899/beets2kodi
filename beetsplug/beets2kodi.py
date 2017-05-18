@@ -169,7 +169,7 @@ def thumbs(tag, albumid):
 
 class Beets2Kodi(BeetsPlugin):
     def __init__(self):
-        super(KodiNfo, self).__init__()
+        super(Beets2Kodi, self).__init__()
         self.register_listener('album_imported', self.album_nfo)
         self.register_listener('album_imported', self.artist_nfo)
 
