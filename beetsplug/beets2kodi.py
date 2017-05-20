@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # This file is part of beets.
-# Copyright 2017, Peace Lekalakala.
+# Copyright 2017,  Peace Lekalakala
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -12,7 +12,7 @@
 #
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-
+# URL only text file by Sergio Soto
 
 """Creates Kodi nfo files (artist.nfo & album.nfo) in xml format after
 importing album.
@@ -40,6 +40,7 @@ import beets.library
 from beets import config
 from beets.plugins import BeetsPlugin
 from lxml import etree as et
+from uuid import UUID
 
 artist_tags = ['name', 'musicBrainzArtistID', 'sortname', 'genre', 'style',
                'mood', 'born', 'formed', 'biography', 'died', 'disbanded']
@@ -85,6 +86,10 @@ emptyartist = '''{"artists":[{"idArtist":"","strArtist":"",
 audiodb_url = "http://www.theaudiodb.com/api/v1/json/"
 libpath = os.path.expanduser(str(config['library']))
 lib = beets.library.Library(libpath)
+
+LINK_ALBUM = 'https://musicbrainz.org/release/{0}'
+LINK_ARTIST = 'https://musicbrainz.org/artist/{0}'
+LINK_TRACK = 'https://musicbrainz.org/recording/{0}'
 
 
 def artist_info(albumid):
@@ -206,12 +211,11 @@ def paths(tag, albumid):
         'Authorization': authorization}
     url = "http://{0}:{1}/jsonrpc".format(
         config['kodi']['host'], config['kodi']['port'])
-    data = {
-        "jsonrpc": "2.0",
-        "method": "Files.GetSources",
-        "params": {
-            "media": "music"},
-        "id": 1}
+    music_lib_name = "{0}".format(config['kodi']['library_name'])
+    data = {"jsonrpc": "2.0",
+            "method": "Files.GetSources",
+            "params": {"media": music_lib_name},
+            "id": 1}
     json_data = json.dumps(data).encode('utf-8')
     request = Request(url, json_data, headers)
     result = simplejson.load(urlopen(request))
@@ -259,10 +263,50 @@ def thumbs(tag, albumid):
 class Beets2Kodi(BeetsPlugin):
     def __init__(self):
         super(Beets2Kodi, self).__init__()
-        self.register_listener('album_imported', self.album_nfo)
-        self.register_listener('album_imported', self.artist_nfo)
+        # Adding defaults.
+        self.config['audiodb'].add({
+            "key": 1
+            })
+        config['kodi'].add({
+            u'host': u'localhost',
+            u'port': 8080,
+            u'user': u'kodi',
+            u'pwd': u'kodi',
+            u'nfo_format': 'xml',
+            u'library_name': 'music'
+            })
+        config['kodi']['pwd'].redact = True
+        self.register_listener('album_imported', self.check_id)
 
-    def artist_nfo(self, lib, album):
+    def check_id(self, lib, album):
+        try:
+            UUID(album.mb_albumid)
+            self._log.info(u'Album ID is valid MBID...creating .nfos')
+            self.register_listener('album_imported', self.nfo_type)
+        except ValueError:
+            self._log.info(u"Album ID is not valid MBID...can't create .nfos")
+            return
+
+    def nfo_type(self, lib, album):
+        if config['kodi']['nfo_format'] == 'mbid_only_text':
+            self._log.info(u'Creating url only .nfo file...')
+            self.register_listener('album_imported', self.album_nfo_text)
+        else:
+            self._log.info(u'creating XML .nfo file...')
+            self.register_listener('album_imported', self.album_nfo_xml)
+            self.register_listener('album_imported', self.artist_nfo_xml)
+
+    def album_nfo_text(self, lib, album):
+        album_path = os.path.join(album.path, 'album.nfo')
+        artist_path = os.path.join(album.path, os.pardir, 'artist.nfo')
+        if not os.path.isfile(album_path):
+            with open(album_path, 'w') as f:
+                f.write(LINK_ALBUM.format(album.mb_albumid))
+        if not os.path.isfile(artist_path):
+            with open(artist_path, 'w') as f:
+                f.write(LINK_ARTIST.format(album.mb_albumartistid))
+
+    def artist_nfo_xml(self, lib, album):
         albumid = 'mb_albumid:' + album.mb_albumid
         artistid = 'mb_albumartistid:' + album.mb_albumartistid
         artistnfo = os.path.join(
@@ -314,7 +358,7 @@ class Beets2Kodi(BeetsPlugin):
                 standalone="yes").decode()
             print(xml, file=open(artistnfo, 'w+'))
 
-    def album_nfo(self, lib, album):
+    def album_nfo_xml(self, lib, album):
         albumnfo = os.path.join(album.path.decode('utf8'), 'album.nfo')
         albumid = 'mb_albumid:' + album.mb_albumid
         root = et.Element('album')
