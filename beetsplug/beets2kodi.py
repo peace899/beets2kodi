@@ -98,7 +98,7 @@ def artist_info(albumid):
         data = (album.albumartist, album.albumartist_sort,
                 album.mb_albumartistid, album.genre, album.path)
         url = audiodb_url + "{0}/artist-mb.php?i=".format(
-              config['audiodb']['key'])
+            config['audiodb']['key'])
 
         try:
             response = urllib.request.urlopen(url + data[2])
@@ -265,16 +265,14 @@ class Beets2Kodi(BeetsPlugin):
         super(Beets2Kodi, self).__init__()
         # Adding defaults.
         self.config['audiodb'].add({
-            "key": 1
-            })
+            "key": 1})
         config['kodi'].add({
             u'host': u'localhost',
             u'port': 8080,
             u'user': u'kodi',
             u'pwd': u'kodi',
             u'nfo_format': 'xml',
-            u'library_name': 'music'
-            })
+            u'library_name': 'music'})
         config['kodi']['pwd'].redact = True
         self.register_listener('album_imported', self.check_id)
 
