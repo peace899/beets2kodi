@@ -66,7 +66,7 @@ like this::
    inline
    ipfs
    keyfinder
-   kodiplugin
+   kodinfo
    kodiupdate
    lastgenre
    lastimport
@@ -150,7 +150,7 @@ Interoperability
 * :doc:`embyupdate`: Automatically notifies `Emby`_ whenever the beets library changes.
 * :doc:`importfeeds`: Keep track of imported files via ``.m3u`` playlist file(s) or symlinks.
 * :doc:`ipfs`: Import libraries from friends and get albums from them via ipfs.
-* :doc:`kodiplugin`: Creates `Kodi`_ .nfo files after album imports.
+* :doc:`kodinfo`: Creates `Kodi`_ .nfo files after album imports.
 * :doc:`kodiupdate`: Automatically notifies `Kodi`_ whenever the beets library
   changes.
 * :doc:`mpdupdate`: Automatically notifies `MPD`_ whenever the beets library
