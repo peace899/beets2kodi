@@ -8,6 +8,7 @@ The plugin relies on the information provided by beets library and the audiodb
 are ignored.
 
 Configuration
+______________
 
 To use ``kodinfo`` plugin, enable it in your configuration
 (see :ref:`using-plugins`).
