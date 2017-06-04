@@ -1,4 +1,4 @@
-Kodi Plugin
+KodiNfo Plugin
 =================
 
 The plugin lets you create nfo files for Kodi music
@@ -9,7 +9,7 @@ are ignored.
 
 Configuration
 
-To use ``kodi`` plugin, enable it in your configuration
+To use ``kodinfo`` plugin, enable it in your configuration
 (see :ref:`using-plugins`).
 Then, you'll want to configure the specifics of your Kodi host.
 You can do that using a ``kodi:`` section in your ``config.yaml``,
@@ -27,7 +27,7 @@ For the nfo_format key, choices are 'xml' or 'mbid_only_text'.
 The choice 'xml' produces XML type document, while the 'mbid_only_text'
 produces a text file containing the MusicBrainz url of the artist or album.
 
-To use the ``kodi`` plugin you need  (requests, urllib.request, lxml, 
+To use the ``kodinfo`` plugin you need  (requests, urllib.request, lxml, 
 simplejson, base64) modules.
 
 You'll also need to enable JSON-RPC in Kodi in order the use the plugin.
