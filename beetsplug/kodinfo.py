@@ -441,12 +441,12 @@ def update_kodi(host, port, user, password):
     return r
 
 
-class Beets2Kodi(BeetsPlugin):
-    """Beets2Kodi Plugin."""
+class KodiNfo(BeetsPlugin):
+    """KodiNfo Plugin."""
 
     def __init__(self):
         """Plugin docstring."""
-        super(Beets2Kodi, self).__init__()
+        super(KodiNfo, self).__init__()
 
         # Adding defaults.
         self.config['audiodb'].add({
