@@ -1,15 +1,18 @@
 KodiNfo Plugin
 =================
 
-The plugin lets you create `.nfo`_ files for `Kodi`_ music
-library whenever you import an album into the library. 
-The plugin relies on the information provided by beets library and :ref:`The AudioDB`
+The plugin lets you create local `.nfo`_ files for `Kodi`_ music
+library whenever you import an album into the library. These .nfo files usually 
+contain release information about the media. The information may include authorship and licence information
+The plugin relies on the information provided by beets library and `The AudioDB`_
 (TADB). It uses MusicBrainz IDs to look up metadata.
 
 .. _.nfo:
     http://kodi.wiki/view/NFO_files
 .. _Kodi:
    http://www.kodi.tv
+.. _The AudioDB:
+   theaudiodb.com
 
 Installation
 ______________
