@@ -17,12 +17,14 @@ The plugin relies on the information provided by beets library and `The AudioDB`
 Installation
 ______________
 
-The plugin requires :ref:`lxml` module, which you can install using :ref:`pip` by typing:
+The plugin requires `lxml`_ module, which you can install using :ref:`pip` by typing:
 
 ``pip install lxml``
 
 After you have pylast installed, enable the ``kodinfo`` plugin in your configuration (see :ref:`using-plugins`).
 
+.. _lxml:
+   http://lxml.de/
 Configuration
 ______________
 To configure the pluging, create a ``kodi:`` section in your ``config.yaml``,
