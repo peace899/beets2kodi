@@ -5,6 +5,7 @@ The plugin lets you create `.nfo`_ files for `Kodi`_ music
 library whenever you import an album into the library. 
 The plugin relies on the information provided by beets library and :ref:`The AudioDB`
 (TADB). It uses MusicBrainz IDs to look up metadata.
+
 .. _.nfo:
     http://kodi.wiki/view/NFO_files
 .. _Kodi:
