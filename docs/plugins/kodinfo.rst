@@ -1,20 +1,24 @@
 KodiNfo Plugin
 =================
 
-The plugin lets you create nfo files for Kodi music
-library and update it whenever you import an album into the library. 
-The plugin relies on the information provided by beets library and the audiodb
-(TADB). It only uses MusicBrainz album IDs, empty ID fields or discogs ID 
-are ignored.
+The plugin lets you create :ref:`.nfo` files for :ref:`Kodi` music
+library whenever you import an album into the library. 
+The plugin relies on the information provided by beets library and :ref:`The AudioDB`
+(TADB). It uses MusicBrainz IDs to look up metadata.
+
+Installation
+______________
+
+The plugin requires :ref:`lxml` module, which you can install using :ref:`pip` by typing:
+
+``pip install lxml``
+
+After you have pylast installed, enable the ``kodinfo`` plugin in your configuration (see :ref:`using-plugins`).
 
 Configuration
 ______________
-
-To use ``kodinfo`` plugin, enable it in your configuration
-(see :ref:`using-plugins`).
-Then, you'll want to configure the specifics of your Kodi host.
-You can do that using a ``kodi:`` section in your ``config.yaml``,
-which will look like this::
+To configure the pluging, create a ``kodi:`` section in your ``config.yaml``,
+to look like this::
 
     kodi:
         host: localhost
@@ -22,6 +26,8 @@ which will look like this::
         user: kodi
         pwd: kodi
         nfo_format: xml
+
+host: The host of your kodi library (either the IP address or server name of your kodi installed computer)
 
     
 For the nfo_format key, choices are 'xml' or 'mbid_only_text'.
