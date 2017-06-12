@@ -42,10 +42,11 @@ to look like this::
 
 **pwd:** Kodi user's password, default is ``kodi``
 
-**nfo_format:** The user's preffered .nfo format, either 'xml' for XML format type .nfo, or 'text' for a text file containg URL to Musicbrainz release or artist page.
+**nfo_format:** The user's preffered .nfo format, either ``xml`` for XML format type .nfo, or ``text`` for a text file containg URL to Musicbrainz release or artist page.
 
     
 Yoyu also need to enable JSON-RPC in Kodi in order the use the plugin.
+
 In Kodi's interface, navigate to System/Settings/Network/Services and choose 
 "Allow control of Kodi via HTTP."
 
