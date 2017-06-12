@@ -35,9 +35,13 @@ to look like this::
         nfo_format: xml
 
 **host:** The host of your kodi library (either the IP address or server name of your kodi installed computer).
+
 **port:** The host's port where Kodi is running, ussually 8080
+
 **user:** Kodi's user, default is ``kodi``
+
 **pwd:** Kodi user's password, default is ``kodi``
+
 **nfo_format:** The user's preffered .nfo format, either 'xml' for XML format type .nfo, or 'text' for a text file containg URL to Musicbrainz release or artist page.
 
     
