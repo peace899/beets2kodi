@@ -12,7 +12,7 @@ The plugin relies on the information provided by beets library and `The AudioDB`
 .. _Kodi:
    http://www.kodi.tv
 .. _The AudioDB:
-   theaudiodb.com
+   http://www.theaudiodb.com
 
 Installation
 ______________
