@@ -2,13 +2,15 @@ KodiNfo Plugin
 =================
 
 The plugin lets you create local `.nfo`_ files for `Kodi`_ music
-library whenever you import an album into the library. The .nfo files can either be in XML file format or a text file containing the link to MusicBrainz release or artist page. These .nfo files usually contain release information about the mediafiles imported. The information may include album or release information such as album/artist rating, reviews, biographies and extra images. The local .nfo is used by Kodi to point scrapers to relevant URLs and or data contained in the XML format file.
+library whenever you import an album into the library. The .nfo files can either be in `XML file format`_ or a `text file`_ containing the link to MusicBrainz release or artist page. These .nfo files usually contain release information about the mediafiles imported. The information may include album or release information such as album/artist rating, reviews, biographies and extra images. The local .nfo is used by Kodi to point scrapers to relevant URLs and or data contained in the XML format file.
 The plugin relies on the information provided by beets library and `The AudioDB`_
 (TADB). It uses MusicBrainz IDs to look up metadata.
 
 .. _.nfo: http://kodi.wiki/view/NFO_files
 .. _Kodi: http://www.kodi.tv
 .. _The AudioDB: http://www.theaudiodb.com
+.. _XML file format: http://kodi.wiki/view/NFO_files/music#Music_.nfo_Files_containing_XML_data
+.. _text file: http://kodi.wiki/view/NFO_files/music#Music_.nfo_files_containing_an_URL
 
 Installation
 ______________
