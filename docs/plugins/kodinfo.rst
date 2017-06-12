@@ -36,7 +36,7 @@ to look like this::
 
 **host:** The host of your kodi library (either the IP address or server name of your kodi installed computer).
 
-**port:** The host's port where Kodi is running, ussually 8080
+**port:** The host's port where Kodi is running, ussually ``8080``
 
 **user:** Kodi's user, default is ``kodi``
 
